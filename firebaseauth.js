@@ -109,13 +109,31 @@ resetPasswordLink.addEventListener('click', (event) => {
         });
 });
 
-  function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send this directly to your backend
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail());
-  };
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+
+  // Log user information to the console
+  console.log('ID: ' + profile.getId());
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
+
+  // Send ID token to your backend for verification (secure approach)
+  var idToken = googleUser.getAuthResponse().id_token;
+  fetch('/your-backend-endpoint', {
+    method: 'POST',
+    body: JSON.stringify({ idToken: idToken })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Backend response:', data);
+  })
+  .catch((error) => {
+        const errorCode = error.code;
+          if (errorCode === 'auth/invalid-email') {
+              showMessage('Error Sending ID Token!', 'signInMessage');
+          }
+      });
 
 
 

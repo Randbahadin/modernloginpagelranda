@@ -17,7 +17,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const analytics = getAnalytics();
-logEvent(analytics, 'notification_received');
 logEvent(analytics, 'notification_received', {
     notificationType: 'alert',
     notificationContent: 'Important update'

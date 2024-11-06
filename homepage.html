@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="homepage.css">
+    <title>Modern Home Page | Randa</title>
+    <script type="module" src="homepage.js"></script>
+    <script type="module" src="firebaseauth.js"></script>
+</head>
+
+<body>
+    <div class="container" id="container">
+        
+        <div class="title">
+            <b onclick="refresh" id="refresh" class="refresh"><i class="fa-solid fa-arrows-rotate" style="color: #fff;"></i></b>
+            
+            <h1>Welcome to the Homepage</h1>
+        </div>
+        
+        <div class="fName">Full Name: <span class="fullName" id="loggedUserFName">
+
+            </span>
+        </div>
+        <div class="email">Email: <span class="eEmail" id="loggedUserEmail">
+
+            </span>
+        </div>
+        <span class="Randa">This is made by Randa </span>
+        <button class="randaBtn" id="randaBtn">linktree | RandBahadin</button>
+        <button class="btnSgt" id="signout">signout</button>
+    </div>
+    <script src="hompage.js"></script>
+</body>
+
+</html>

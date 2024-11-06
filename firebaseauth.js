@@ -112,28 +112,32 @@ resetPasswordLink.addEventListener('click', (event) => {
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
 
-  // Log user information to the console
   console.log('ID: ' + profile.getId());
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail());
 
-  // Send ID token to your backend for verification (secure approach)
+  // Send ID token to your backend for verification
   var idToken = googleUser.getAuthResponse().id_token;
   fetch('/your-backend-endpoint', {
     method: 'POST',
     body: JSON.stringify({ idToken: idToken })
   })
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
   .then(data => {
     console.log('Backend response:', data);
+    // Handle successful authentication (e.g., redirect to a protected page)
+    window.location.href = '/protected-page';
   })
-  .catch((error) => {
-        const errorCode = error.code;
-          if (errorCode === 'auth/invalid-email') {
-              showMessage('Error Sending ID Token!', 'signInMessage');
-          }
-      });
-
-
+  .catch(error => {
+    console.error('Error:', error);
+    // Handle authentication errors (e.g., display an error message to the user)
+    alert('Authentication failed. Please try again.');
+  });
+}
 

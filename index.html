@@ -18,7 +18,7 @@
                 <div id="signUpMessage" class="messageDiv" style="display: none;"></div>
                 <h1>Create Account</h1>
                 <div class="social-icons">
-                    <a data-onsuccess="onSignIn" href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a id="googleSignInA" data-onsuccess="onSignIn" href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-apple"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-microsoft"></i></a>
@@ -38,7 +38,7 @@
                 <div id="signInMessage" class="messageDiv" style="display: none;"></div>
                 <h1>Sign In</h1>
                 <div class="social-icons">
-                    <a data-onsuccess="onSignIn" href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a id="googleSignInA" data-onsuccess="onSignIn" href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-apple"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-microsoft"></i></a>
@@ -69,6 +69,15 @@
     </div>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script>
+  // Initialize Firebase
+  var firebaseConfig = {
+    // ... your Firebase configuration
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
 </body>
 
 </html>

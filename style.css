@@ -72,6 +72,10 @@ body {
     cursor: pointer;
 }
 
+.btn{
+    top: -3px;
+} 
+
 .container button.hidden {
     background-color: transparent;
     border-color: #fff;

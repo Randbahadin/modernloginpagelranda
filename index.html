@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Modern Login Page | Randa</title>
     <script type="module" src="firebaseauth.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-</head>
+    </head>
 
 <body>
 
@@ -19,14 +18,15 @@
                 <div id="signUpMessage" class="messageDiv" style="display: none;"></div>
                 <h1>Create Account</h1>
                 <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a id="googleSignInA" data-onsuccess="onSignIn" href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-apple"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-microsoft"></i></a>
                 </div>
                 <span>or use your email for registeration</span>
                 <input type="name" id="fName" placeholder="Full Name"  required>
-                <input type="email" id="rEmail" placeholder="Email" required>
+                <input style="text-transform: lowercase;" type="email" id="rEmail" placeholder="Email" required>
+                <input type="tel" id="rPhoneNum" placeholder="Phone Number" required>
                 <input type="password" id="rPassword" placeholder="Password" required>
                 <c href="#" id="rShowPassword" class="rShowPassword"><i id="rEye" class="fa-solid fa-eye" style="color: #2c2c2f;"></i></c>
                 <button class="btn" id="submitSignUp">Sign Up</button>
@@ -38,13 +38,14 @@
                 <div id="signInMessage" class="messageDiv" style="display: none;"></div>
                 <h1>Sign In</h1>
                 <div class="social-icons">
-                    <a data-onsuccess="SignIn" href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a id="googleSignInA" data-onsuccess="onSignIn" href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-apple"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-microsoft"></i></a>
                 </div>
                 <span>or use your email & password</span>
-                <input type="email" id="email" placeholder="Email" required>
+                <input style="text-transform: lowercase;" type="email" id="email" placeholder="Email" required>
+                <input type="tel" id="phoneNum" placeholder="Phone Number" required>
                 <input class="password" type="password" id="password" placeholder="Password" required>
                 <c href="#" id="showPassword" class="showPassword"><i id="eye" class="fa-solid fa-eye" style="color: #2c2c2f;"></i></c>
                 <a id="resetPassword" href="#">Forget Your Password?</a>
@@ -66,8 +67,17 @@
             </div>
         </div>
     </div>
-
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script>
+  // Initialize Firebase
+  var firebaseConfig = {
+    // ... your Firebase configuration
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
 </body>
 
 </html>

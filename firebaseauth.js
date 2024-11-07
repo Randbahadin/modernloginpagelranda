@@ -109,13 +109,12 @@ resetPasswordLink.addEventListener('click', (event) => {
         });
 });
 
-  function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send this directly to your backend
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail());
-  }
-
-
-
+document.getElementById('googleSignInA').addEventListener('click', () => {
+  firebase.auth().signInWithPopup(googleProvider)
+    .then((result) => {
+      // Handle successful sign-in
+    })
+    .catch((error) => {
+      // Handle errors
+    });
+});
